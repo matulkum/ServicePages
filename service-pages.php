@@ -1,4 +1,4 @@
-<?php
+<?php  namespace ProcessWire;
 
 /**
  * ProcessWire template file installed by the ServicePages module

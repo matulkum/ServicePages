@@ -37,9 +37,9 @@
 		}
 	</style>
 
-	<?php $adminTemplates = wire('config')->urls->adminTemplates; ?>
+	<?php $adminTemplates = $config->urls->adminTemplates; ?>
 
-        <script type="text/javascript" src="<?php echo wire('config')->urls->modules; ?>Jquery/JqueryCore/JqueryCore.js"></script>
+        <script type="text/javascript" src="<?php echo $config->urls->modules; ?>Jquery/JqueryCore/JqueryCore.js"></script>
 
 	<script type="text/javascript">
 		$(document).ready(function() {
@@ -195,7 +195,7 @@
 	<h3>Allowed fields</h3>
 	<p>The allowed values for <em>field</em> are set with the module configuration. The current configuration allows the following fields to be queried:</p>
 	<ul>
-	<?php foreach($queryFields as $value) echo "<li>" . (ctype_digit("$value") ? wire('fields')->get($value) : $value) ."</li>"; ?>
+	<?php foreach($queryFields as $value) echo "<li>" . (ctype_digit("$value") ? $fields->get($value) : $value) ."</li>"; ?>
 	</ul>
 	<p>You may also specify the following modifier keyword=value pairs:</p>
 	<ul>
@@ -230,7 +230,7 @@
 		<h3>Allowed templates</h3>	
 		<p>By default, the search will be performed on pages using the following templates (as specified in the module configuration):</p>
 		<ul>
-		<?php foreach($queryTemplates as $value) echo "<li>" . wire('templates')->get($value) . "</li>"; ?>
+		<?php foreach($queryTemplates as $value) echo "<li>" . $template->get($value) . "</li>"; ?>
 		</ul>
 		<p>You may add more templates to this list by editing the ServicesPages module configuration.</p>
 		<p>If <em>template</em> is one of your allowed query fields, then you may reduce the above by specifying the template(s) to query in the selector: <code>template=name</code></p>
@@ -291,7 +291,7 @@
 
 	<p>In addition, your module configuration also specifies that the following fields will be included:</p>
 	<ul>
-	<?php foreach($displayFields as $value) echo "<li>" . (ctype_digit("$value") ? wire('fields')->get($value) : $value) . "</li>"; ?>
+	<?php foreach($displayFields as $value) echo "<li>" . (ctype_digit("$value") ? $fields->get($value) : $value) . "</li>"; ?>
 	</ul>
 	<p>You may add more by editing the ServicePages module configuration.</p>
 	
